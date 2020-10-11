@@ -163,21 +163,13 @@ public class Compiler {
 		this.position --;
 	}
 	public Symbol reserver() {
-		if(this.token.toString().equals("BEGIN")) {
-			return Symbol.BEGINSY;
-		}else if(this.token.toString().equals("END")) {
-			return Symbol.ENDSY;
-		}else if(this.token.toString().equals("FOR")) {
-			return Symbol.FORSY;
-		}else if(this.token.toString().equals("IF")) {
-			return Symbol.IFSY;
-		}else if(this.token.toString().equals("THEN")) {
-			return Symbol.THENSY;
-		}else if(this.token.toString().equals("ELSE")) {
-			return Symbol.ELSESY;
-		}else {
-			return Symbol.IDSY;
-		}
+		if(this.token.toString().equals("BEGIN"))     return Symbol.BEGINSY;
+		else if(this.token.toString().equals("END"))  return Symbol.ENDSY;
+		else if(this.token.toString().equals("FOR"))  return Symbol.FORSY;
+		else if(this.token.toString().equals("IF"))   return Symbol.IFSY;
+		else if(this.token.toString().equals("THEN")) return Symbol.THENSY;
+		else if(this.token.toString().equals("ELSE")) return Symbol.ELSESY;
+		else return Symbol.IDSY;
 	}
 	public int transNum() {
 
