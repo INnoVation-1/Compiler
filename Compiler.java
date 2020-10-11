@@ -64,7 +64,7 @@ public class Compiler {
 		}
 	}
 	public boolean isNewLine() {
-		if(this.readinChar == '\n' || this.readinChar == '\r') {
+		if(this.readinChar == '\n') {
 			return true;
 		}else {
 			return false;
