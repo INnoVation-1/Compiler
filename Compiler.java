@@ -5,11 +5,10 @@ import java.io.IOException;
 
 public class Compiler {
 	public String inputString;
-	public int pos = 0;
+	public int position = 0;
 	public int num;
 	public char readinChar;
 	public StringBuilder token = new StringBuilder();
-	
 	char[] letList = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
 						'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	char[] numList = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -42,14 +41,13 @@ public class Compiler {
 			 in.close();
 			 this.inputString = new String(buffer,"GB2312");
 			} catch (IOException e) {
-			 // TODO Auto-generated catch block
 			 e.printStackTrace();
 			}
 	}
 	public boolean getchar() {
 		try {
-			this.readinChar = this.inputString.charAt(pos);
-			this.pos ++;
+			this.readinChar = this.inputString.charAt(position);
+			this.position ++;
 			return true;
 		}catch(Exception e) {
 			return false;
@@ -162,7 +160,7 @@ public class Compiler {
 		this.token.append(this.readinChar);
 	}
 	public void retract() {
-		this.pos --;
+		this.position --;
 	}
 	public Symbol reserver() {
 		if(this.token.toString().equals("BEGIN")) {
@@ -245,7 +243,7 @@ public class Compiler {
 	public static void main(String[] args) {
 		Compiler compiler = new Compiler();
 		compiler.readFile(args[0]);
-		while(compiler.pos + 1 < compiler.inputString.length()) {
+		while(compiler.position + 1 < compiler.inputString.length()) {
 			if(!compiler.getchar()) {
 				break;
 			}
