@@ -245,17 +245,13 @@ public class Compiler {
 	public static void main(String[] args) {
 		Compiler compiler = new Compiler();
 		compiler.readFile(args[0]);
-		
-		//System.out.println(compiler.inputString +"//all");
 		while(compiler.pos + 1 < compiler.inputString.length()) {
 			if(!compiler.getchar()) {
 				break;
 			}
-			//System.out.println(compiler.nowReadChar);
 			if(compiler.getsym() == -1) {
 				return;
 			}
-			//System.out.println(compiler.token.toString() +"/now");
 			switch(compiler.symbol) {
 				case BEGINSY:
 					System.out.println("Begin");
